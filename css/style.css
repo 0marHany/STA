@@ -1,0 +1,42 @@
+.logo{
+    color: #ff7200;
+    font-family: cursive;
+}
+
+.nav-link{
+    color: #fff;
+}
+.nav-link:hover {
+    color: #ff7200 !important;
+    cursor: pointer;
+}
+
+body{
+    background: linear-gradient(to top, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../images/1.jpg);
+    background-size: cover; 
+}
+.black{
+    background-color: black;
+}
+.content span{
+    color: #ff7200;
+    font-size: 65px
+}
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    letter-spacing: 2px;
+}
+.par{
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+.test{
+    font-family: var(--bs-font-sans-serif) !important;
+    font-size: 1.75rem !important;
+    color: #212529 !important;
+}
+.margin{
+    margin-top: 15%;
+}
