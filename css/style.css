@@ -3,9 +3,6 @@
     font-family: cursive;
 }
 
-.nav-link{
-    color: #fff;
-}
 .nav-link:hover {
     color: #ff7200 !important;
     cursor: pointer;
@@ -32,11 +29,12 @@ body{
     letter-spacing: 1.2px;
     line-height: 30px;
 }
-.test{
-    font-family: var(--bs-font-sans-serif) !important;
-    font-size: 1.75rem !important;
-    color: #212529 !important;
+.buttonDesign{
+    border-radius: 0 25px 25px 0;
+    width: 8%;
+    font-weight: bold;
+    background-color: #ff7200 !important;
 }
-.margin{
-    margin-top: 15%;
+.rounded-pill1 {
+   border-radius: 25px 0 0 25px;
 }

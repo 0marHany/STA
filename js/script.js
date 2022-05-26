@@ -4,12 +4,22 @@ let SEO = document.getElementById('SEO');
 let PERFORMANCE = document.getElementById('PERFORMANCE');
 let SECURITY = document.getElementById('SECURITY');
 let Home = document.getElementById('Home');
-
+let Title = document.getElementById('Title');
+let Link = document.getElementById('Link');
+let Analyze = document.getElementById('Analyze');
+let Url = document.getElementById('Url');
 // content of bages
 let txetContent = document.getElementById('txetContent')
+let txetContent2 = document.getElementById('txetContent2')
 
-ALL.addEventListener('click', () => {
-    txetContent.innerHTML = `<div class="row">
+let data;
+$(ALL).click(() => {
+    data = "All"
+    Title.innerHTML = 'Test All';
+    Link.style.display = 'block';
+    txetContent.style.display = 'none';
+    txetContent2.style.display = 'block';
+    txetContent2.innerHTML = `<div class="row">
     <div class="col-md-7">
         <h3><br><br><span class="text-dark">What is Software automation?</span></h3><br>
         <p class="content text-light"> Testing Automation Software Testing: <br>
@@ -23,20 +33,21 @@ ALL.addEventListener('click', () => {
             It is basically an automation process of a manual process, Like regression testing.
         <h3><br><span>What can automation software do for me?</span></h3><br>
         <p class="content text-light">- Helps you maintain compliance<br>- Improved accuracy and quality<br>
-            - Reduces cost <br> - Improved customer experience<br><br><br></p>
-
-
+            - Reduces cost <br> - Improved customer experience</p>
     </div>
     <div class="col-md-5 ">
-        <div class="p-1">
             <img src="images/undraw_all_the_data_re_hh4w.svg" class="w-100" alt="All">
-        </div>
     </div>
 </div>`;
-})
+});
 
 SEO.addEventListener('click', () => {
-    txetContent.innerHTML = `<div class="row">
+    data = "SEO";
+    Link.style.display = 'block';
+    txetContent.style.display = 'none';
+    txetContent2.style.display = 'block';
+    Title.innerHTML = 'SEO Test';
+    txetContent2.innerHTML = `<div class="row">
     <div class="col-md-7">
         <h3><br><br><br><br><span class="text-dark" >SEO or search engine optimization</span></h3><br>
         <p class="content text-light" style="font-size: 19px;" id="txetContent">
@@ -47,16 +58,19 @@ SEO.addEventListener('click', () => {
             projects and businesses.
     </div>
     <div class="col-md-5 ">
-        <div class="p-1">
-            <img src="images//seo.svg" id="imgContent" class="w-101" alt="s">
-        </div>
+            <img src="images//seo.svg" id="imgContent" class="w-100" alt="s">
     </div>
 </div>`;
 
 })
 
 PERFORMANCE.addEventListener('click', () => {
-    txetContent.innerHTML = `<div class="row">
+    data = "Performance";
+    Link.style.display = 'block';
+    txetContent.style.display = 'none';
+    txetContent2.style.display = 'block';
+    Title.innerHTML = 'Performance Test';
+    txetContent2.innerHTML = `<div class="row">
     <div class="col-md-7">
         <h3><br><br><span class="text-dark">What Is Automated Performance Testing?</span></h3><br>
         <p class="content text-light"> Automated performance testing checks the speed, response time, reliability,
@@ -66,28 +80,27 @@ PERFORMANCE.addEventListener('click', () => {
             different browser OEMs.
             All of these factors contribute to the performance of web apps and can provide top-notch
             experiences when done right.
-
-
         <h3><br class="text-dark">Performance Testing Process</h3><br>
         <p class="content text-light">The methodology adopted for performance testing can vary widely but the
             objective for performance tests remain the same. It can help demonstrate that your software
             system meets certain pre-defined performance criteria. Or it can help compare the
             performance of two software systems.
             It can also help identify parts of your software system which degrade its
-            performance.<br><br><br></p>
-
-
+            performance.</p>
     </div>
     <div class="col-md-5 ">
-        <div class="p-1">
             <img src="images/undraw_fast_loading_re_8oi3.svg" class="w-100" alt="All">
-        </div>
     </div>
 </div>`;
 })
 
 SECURITY.addEventListener('click', () => {
-    txetContent.innerHTML = `<div class="row ">
+    data = "Security";
+    Link.style.display = 'block';
+    txetContent.style.display = 'none';
+    txetContent2.style.display = 'block';
+    Title.innerHTML = 'Security Test';
+    txetContent2.innerHTML = `<div class="row ">
     <div class="col-md-7">
         <h3><br><br><span class="text-dark">What is security automation?</span></h3><br>
         <p class="content text-light"> Security automation uses software-based processes to programmatically detect, investigate, and fix external threats to applications and systems. This can be done with or without manual intervention. 
@@ -95,38 +108,33 @@ SECURITY.addEventListener('click', () => {
              prioritize remediation, and provide actionable alerts that allow the security teams to respond quickly.</span></h3><br>
              <h3><br><br><span class="text-dark">Benefits of Security Automation</span></h3><br>
         <p class="content text-light">Faster containment and mitigation—automated tools can immediately execute security playbooks in response to certain types of incidents. 
-            This means threats can be contained or even completely eradicated with no human intervention.<br><br><br></p>
-
-
+            This means threats can be contained or even completely eradicated with no human intervention.</p>
     </div>
     <div class="col-md-5 ">
-        <div class="p-1">
             <img src="images/undraw_secure_server_re_8wsq.svg" class="w-100" alt="All">
-        </div>
     </div>
 </div>`;
 })
-
-
 Home.addEventListener('click', () => {
-    txetContent.innerHTML = `<div class="content">
-    <h1 class="text-light">Software Testing <br><span>Automation</span></h1><br>
-    <p class="par text-light">Automation software are applications that minimize the need for human input
-        and
-        can be used <br> in a variety of ways in almost any industry.At the most basic, automation
-        software is designed<br> to turn repeatable, routine tasks into automated actions.<br> It's used in
-        Business Process Management (BPM) and Robotic Process Automation (RPA),<br>among others.
-        Integration automation is higher up in the evolution of automation software.<br> Known as
-        "digital workers", these software bots can be "trained" via recorded workflows.<br> Once a
-        process is built it requires very little human intervention. Digital Workers can become<br>
-        part of an integrated human/robotic workforce<br>
-    <h2 class="text-light mt-5 ">What Is Automated Performance Testing?</h2><br>
-    
-    </p>
-    <p class="par text-light">Automated performance testing checks the speed, response time, reliability,
-        resource
-        usage,<br>
-        and scalability of software under an expected workload by leveraging automation.<br>
-    </p>
-    </div>`;
+    txetContent.style.display = 'block';
+    txetContent2.style.display = 'none';
+    Link.style.display = 'none';
+    Title.innerHTML = 'Home';
 })
+Analyze.addEventListener('click', async function postUrl() {
+    if (data == "All") {
+        let dataLink = {
+            "link": Url.value
+        }
+        let response = await fetch(`https://a5r-testing.herokuapp.com/addNewlink`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dataLink)
+        });
+        let { Link } = await response.json()
+        console.log(Link);
+    }
+    else {
+        console.log("false");
+    }
+});
