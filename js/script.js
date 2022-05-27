@@ -5,18 +5,21 @@ let PERFORMANCE = document.getElementById('PERFORMANCE');
 let SECURITY = document.getElementById('SECURITY');
 let Home = document.getElementById('Home');
 let Title = document.getElementById('Title');
-let Link = document.getElementById('Link');
-let Analyze = document.getElementById('Analyze');
-let Url = document.getElementById('Url');
+
 // content of bages
 let txetContent = document.getElementById('txetContent')
 let txetContent2 = document.getElementById('txetContent2')
-
+let Link = document.getElementById('Link');
+let Analyze = document.getElementById('Analyze');
+let Url = document.getElementById('Url');
+let Result = document.getElementById('Result');
 let data;
+
 $(ALL).click(() => {
     data = "All"
     Title.innerHTML = 'Test All';
     Link.style.display = 'block';
+    Result.style.display = 'block';
     txetContent.style.display = 'none';
     txetContent2.style.display = 'block';
     txetContent2.innerHTML = `<div class="row">
@@ -44,6 +47,7 @@ $(ALL).click(() => {
 SEO.addEventListener('click', () => {
     data = "SEO";
     Link.style.display = 'block';
+    Result.style.display = 'block';
     txetContent.style.display = 'none';
     txetContent2.style.display = 'block';
     Title.innerHTML = 'SEO Test';
@@ -67,6 +71,7 @@ SEO.addEventListener('click', () => {
 PERFORMANCE.addEventListener('click', () => {
     data = "Performance";
     Link.style.display = 'block';
+    Result.style.display = 'block';
     txetContent.style.display = 'none';
     txetContent2.style.display = 'block';
     Title.innerHTML = 'Performance Test';
@@ -97,6 +102,7 @@ PERFORMANCE.addEventListener('click', () => {
 SECURITY.addEventListener('click', () => {
     data = "Security";
     Link.style.display = 'block';
+    Result.style.display = 'block';
     txetContent.style.display = 'none';
     txetContent2.style.display = 'block';
     Title.innerHTML = 'Security Test';
@@ -116,25 +122,36 @@ SECURITY.addEventListener('click', () => {
 </div>`;
 })
 Home.addEventListener('click', () => {
+    Result.style.display = 'none';
     txetContent.style.display = 'block';
     txetContent2.style.display = 'none';
     Link.style.display = 'none';
     Title.innerHTML = 'Home';
 })
-Analyze.addEventListener('click', async function postUrl() {
+
+Analyze.addEventListener('click', async function run() {
     if (data == "All") {
-        let dataLink = {
-            "link": Url.value
-        }
-        let response = await fetch(`https://a5r-testing.herokuapp.com/addNewlink`, {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(dataLink)
-        });
-        let { Link } = await response.json()
-        console.log(Link);
+        await postUrl_performance();
+        await getLink()
     }
     else {
         console.log("false");
     }
 });
+async function postUrl_performance() {
+    let dataLink = {
+        "link": Url.value
+    }
+    let response = await fetch(`https://a5r-testing.herokuapp.com/addNewlink`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataLink)
+    });
+    let { Link } = await response.json()
+    console.log(Link);
+}
+async function getLink() {
+    let response = await fetch(`https://a5r-testing.herokuapp.com/getAllTestSpeed`);
+    let finalResult = await response.json();
+    console.log(finalResult.get);
+}
