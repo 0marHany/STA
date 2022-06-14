@@ -133,20 +133,20 @@ $(Home).click(() => {
 });
 
 $(Analyze).click(async function run() {
-
+    await postUrl();
     if (data == "Performance") {
-        await postUrl();
         await performanceRsulte()
+
     }
     // else if (data == "All") {
     //     await allRsulte()
     // }
-    // else if (data == "SEO") {
-    //     await SEO_Rsulte()
-    // }
-    // else if (data == "Security") {
-    //     await securityRsulte()
-    // }
+    else if (data == "SEO") {
+        await SEO_Rsulte()
+    }
+    else if (data == "Security") {
+        await securityRsulte()
+    }
     else {
         console.log("error");
     }
@@ -162,7 +162,13 @@ async function postUrl() {
         body: JSON.stringify(dataLink)
     });
     let { Link, error } = await response.json()
-    console.log(Link, error);
+    if (error) {
+        console.log(error);
+    }
+    else {
+        console.log(Link);
+    }
+
 }
 async function performanceRsulte() {
     let response = await fetch(`https://a5r-testing.herokuapp.com/getAllTestSpeed`);
@@ -390,4 +396,135 @@ ${3}
 </div>
 `;
     ResultInside.innerHTML = Performance_Rsulte;
+}
+
+async function SEO_Rsulte() {
+    let response = await fetch(`http://localhost:5000/SEO`);
+    let { get } = await response.json();
+    console.log(get);
+    show_SEO_Rsulte(get);
+}
+
+function show_SEO_Rsulte(get) {
+    let propertyValues = Object.values(get);
+    let propertyNames = Object.keys(get);
+    let SEO_Resulte = ``;
+    for (let i = 1; i < 15; i++) {
+        SEO_Resulte += `<div class="row bg-light mb-5">
+    <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
+        <h5 class="">${propertyNames[i]}</h5>
+    </div>
+    <div class="col-md-6 border-end">
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            laboreet
+            dolore magna aliqua. Ut enim ad minim veniam</h5>
+    </div>
+    <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
+        <h5 class="text-info">${propertyValues[i]}</h5>
+    </div>
+</div>
+`;
+    }
+    ResultInside.innerHTML = SEO_Resulte;
+}
+
+
+
+async function securityRsulte() {
+    let response = await fetch(`http://localhost:5000/Security/628e773295c61f10df2bd9cd`);
+    let { get } = await response.json();
+    console.log(get);
+    show_securityRsulte(get);
+}
+
+function show_securityRsulte(get) {
+    let table = ``;
+    let rowOFtbale = [``, ``];
+    let secur_Resulte = ``;
+    for (let i = 0; i < get.lib_json.length; i++) {
+        for (let j = 0; j < get.lib_json[i].vulnerabil.length; j++) {
+            rowOFtbale[i] += `<tbody>
+                <tr>
+                    <td>
+                        <span>${get.lib_json[i].vulnerabil[j].score}</span>
+                    </td>
+                    <td>
+                        <span>${get.lib_json[i].vulnerabil[j].cve}</span>
+                    </td>
+                    <td>
+                        <span>${get.lib_json[i].vulnerabil[j].type}</span>
+                    </td>
+                </tr>
+            </tbody>
+    `;
+            console.log(rowOFtbale[i]);
+        }
+    }
+    for (let i = 0; i < get.lib_json.length; i++) {
+        table += `<div class="row mt-4 text-light">
+        <div class="col-md-6  appscan-result__name d-flex justify-content-center align-items-center ">
+            ${get.lib_json[i].name}</div>
+        <div class="col-md-6 appscan-result__version  d-flex justify-content-center align-items-center ">
+            ${get.lib_json[i].version}</div>
+        <div class="bg-light text-dark vw-100">
+            <p>${get.lib_json[i].message}</p>
+            <table class="table ">
+                <thead class="">
+                    <tr>
+                        <td>
+                            <span>CVSSv3.1 Score</span>
+                        </td>
+                        <td>
+                            <span>Vulnerability CVE-ID</span>
+                        </td>
+                        <td>
+                            <span>Vulnerability Type</span>
+                        </td>
+                    </tr>
+                </thead>
+                 ${rowOFtbale[i]}      
+                </table>
+    </div>
+</div>`
+
+    }
+    secur_Resulte += `
+            <!-- F -->
+        <div class="d-flex justify-content-center align-content-center">
+            <div class="square bg-danger mb-2 d-flex justify-content-center align-items-center">
+                <h1 class="text-light fw-bold ">${get.final_score}</h>
+            </div>
+        </div>
+        <!-- endF -->
+
+        <!-- boxs -->
+        <div class="row mb-3">
+            <div class="d-flex justify-content-center align-items-center ">
+                <div class="col-md-3 m-2 bg-light">
+                    <div class="card__title  d-flex justify-content-center align-items-center"> Web Software
+                        Found</div>
+                    <div class="card__number  d-flex justify-content-center align-items-center">
+                        ${get.software_found}</div>
+                </div>
+                <div class="col-md-3 m-2 bg-light">
+                    <div class="card__title  d-flex justify-content-center align-items-center"> Web Software
+                        Found</div>
+                    <div class="card__number  d-flex justify-content-center align-items-center  text-dark">
+                        ${get.software_outdated}</div>
+                </div>
+                <div class="col-md-3 m-2 bg-light">
+                    <div class="card__title  d-flex justify-content-center align-items-center"> Web Software
+                        Found</div>
+                    <div class="card__number  d-flex justify-content-center align-items-center  text-dark">
+                        ${get.software_vulnerabil}</div>
+                </div>
+            </div>
+        </div>
+        <!-- endBoxs -->
+        
+        <!-- table -->
+        ${table}
+        <!-- endTable -->
+`;
+    ResultInside.innerHTML = secur_Resulte;
 }

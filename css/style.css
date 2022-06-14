@@ -58,3 +58,94 @@ body{
     box-shadow: 0 0 0 0px #eeb689;
     color: #fff;
 }
+.square{
+    background-color: rgb(255, 0, 0);
+    width: 150px;
+    height: 200px;
+    padding: 50px;
+    /* margin: 20px; */
+    border-radius: 25px;
+}
+.square h1{
+    font-size: 50px;
+}
+/* .test{
+    width: 150px;
+    height: 200px;
+    padding: 50px;
+} */
+.card__number {
+    font-size: 46px;
+    color: rgba(254,152,0,.88);
+    width: 100%;
+    padding: 20px;
+}
+.card__title {
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold ;
+    padding: 20px;
+    background: rgba(161, 166, 168, 0.4);
+}
+.appscan-result__name{
+    border-top-left-radius: 3px;
+    background: #f05233;
+    width: 7%;
+}
+.appscan-result__version{
+    border-top-right-radius: 3px;
+    background: #d84a2e;
+    width: 7%;
+
+}
+.test{
+    background-color: rgba(148, 148, 148, 0.966);
+}
+td{
+    padding: 6px 10px;
+    border: 1px solid #cddeeb;
+}
+thead{
+background-color: #cddeeb;
+}
+
+/* 
+.forma{
+    width: 285px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+    transform: translate(0%,-5%);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.forma input{
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid #ff7200;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: sans-serif;
+}
+
+.btnn{
+    width: 240px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnn:hover{
+    background: #fff;
+    color: #ff7200;
+} */
