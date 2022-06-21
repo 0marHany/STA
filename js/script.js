@@ -1,10 +1,30 @@
 // bages
+let elmentNav = document.getElementById('elmentNav');
+let accountNav = document.getElementById('accountNav');
 let ALL = document.getElementById('ALL');
 let SEO = document.getElementById('SEO');
 let PERFORMANCE = document.getElementById('PERFORMANCE');
 let SECURITY = document.getElementById('SECURITY');
 let Home = document.getElementById('Home');
 let Title = document.getElementById('Title');
+
+//UserAccount
+let LoginPage = document.getElementsByClassName('LoginPage');
+let CreateAccount = document.getElementsByClassName('CreateAccount');
+let signIn_Page = document.getElementById('signIn_Page');
+let signUP_Page = document.getElementById('signUP_Page');
+let R_Username = document.getElementById("R_Username")
+let R_Email = document.getElementById("R_Email")
+let R_Password = document.getElementById("R_Password")
+let R_RePassword = document.getElementById("R_RePassword")
+let R_errors = document.getElementById("R_errors")
+let Email = document.getElementById("Email")
+let Password = document.getElementById("Password")
+let errors = document.getElementById("errors")
+let signUP = document.getElementById("signUP")
+let signIn = document.getElementById("signIn")
+let registration = document.getElementById("registration")
+
 
 // content of bages
 let txetContent = document.getElementById('txetContent')
@@ -138,9 +158,9 @@ $(Analyze).click(async function run() {
         await performanceRsulte()
 
     }
-    // else if (data == "All") {
-    //     await allRsulte()
-    // }
+    else if (data == "All") {
+        await allRsulte()
+    }
     else if (data == "SEO") {
         await SEO_Rsulte()
     }
@@ -170,6 +190,7 @@ async function postUrl() {
     }
 
 }
+// performance
 async function performanceRsulte() {
     let response = await fetch(`https://a5r-testing.herokuapp.com/getAllTestSpeed`);
     let { message, get } = await response.json();
@@ -397,9 +418,10 @@ ${3}
 `;
     ResultInside.innerHTML = Performance_Rsulte;
 }
-
+// ==============================================
+// seo
 async function SEO_Rsulte() {
-    let response = await fetch(`http://localhost:5000/SEO`);
+    let response = await fetch(`http://localhost:4000/SEO`);
     let { get } = await response.json();
     console.log(get);
     show_SEO_Rsulte(get);
@@ -408,9 +430,17 @@ async function SEO_Rsulte() {
 function show_SEO_Rsulte(get) {
     let propertyValues = Object.values(get);
     let propertyNames = Object.keys(get);
-    let SEO_Resulte = ``;
-    for (let i = 1; i < 15; i++) {
-        SEO_Resulte += `<div class="row bg-light mb-5">
+    let SEO_Data = ``;
+    let SEO_sample = ``;
+    let SEO_sample2 = ``;
+    for (let i = 0; i < 5; i++) {
+        SEO_sample += `
+        <div class="col-md-1 ">${get.keyWord[i]}</div>`;
+        SEO_sample2 += `
+        <div class="col-md-1 ">${get.keyWord[5 + i]}</div>`;
+    }
+    for (let i = 1; i < 5; i++) {
+        SEO_Data += `<div class="row bg-light mb-5">
     <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
         <h5 class="">${propertyNames[i]}</h5>
     </div>
@@ -425,13 +455,36 @@ function show_SEO_Rsulte(get) {
 </div>
 `;
     }
-    ResultInside.innerHTML = SEO_Resulte;
+    SEO_sample = `<div class="row bg-light mb-5">
+    <div class="col-md-3 d-flex justify-content-center align-items-center border">
+        <h5 class="">Key Word</h5>
+    </div>
+    <div class="col-md-6 border">
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            laboreet
+            dolore magna aliqua. Ut enim ad minim veniam</h5>
+    </div>
+    <div class="col-md-3 d-flex justify-content-center align-items-center border">
+        <h5 class="text-info">1</h5>
+    </div>
+    <h5 class="text-info ms-4 fw-bold">Sample KeyWord :</h5>
+    <div class="d-flex justify-content-center align-items-center text-dark">
+        <div>
+            <div class="row justify-content-between">
+               ${SEO_sample}
+            </div>
+            <div class="row justify-content-between">
+                ${SEO_sample2}
+                </div>
+        </div>
+    </div>
+</div>`
+    ResultInside.innerHTML = SEO_Data + SEO_sample;
 }
-
-
-
+// ======================================
+// securityRsulte
 async function securityRsulte() {
-    let response = await fetch(`http://localhost:5000/Security/628e773295c61f10df2bd9cd`);
+    let response = await fetch(`http://localhost:4000/Security/628e773295c61f10df2bd9cd`);
     let { get } = await response.json();
     console.log(get);
     show_securityRsulte(get);
@@ -508,13 +561,13 @@ function show_securityRsulte(get) {
                 </div>
                 <div class="col-md-3 m-2 bg-light">
                     <div class="card__title  d-flex justify-content-center align-items-center"> Web Software
-                        Found</div>
+                    Outdated</div>
                     <div class="card__number  d-flex justify-content-center align-items-center  text-dark">
                         ${get.software_outdated}</div>
                 </div>
                 <div class="col-md-3 m-2 bg-light">
                     <div class="card__title  d-flex justify-content-center align-items-center"> Web Software
-                        Found</div>
+                    Vulnerabil</div>
                     <div class="card__number  d-flex justify-content-center align-items-center  text-dark">
                         ${get.software_vulnerabil}</div>
                 </div>
@@ -528,3 +581,171 @@ function show_securityRsulte(get) {
 `;
     ResultInside.innerHTML = secur_Resulte;
 }
+// ====================================
+async function allRsulte() {
+    let response = await fetch(`http://localhost:4000/ALL`);
+    let { get } = await response.json();
+    console.log(get);
+    show_allRsulte(get);
+}
+
+function show_allRsulte(get) {
+    let ALL_DATA = ``;
+    ALL_DATA += `
+        <div id="Main_SPEED">
+            <h3 class="text-danger">Performace</h3>
+            <div class="row text-light d-flex align-items-center justify-content-center mb-3">
+                <div class="icon d-flex align-items-center justify-content-center">
+                    <h5>${get.PR_Precentage}</h5>
+                </div>
+                <div class="mt-4 fw-bolder d-flex justify-content-between align-items-center">
+                    <div>loadingExperince : ${get.loadingExperince}</div>
+                    <div>OriginLoadingExperince : ${get.OriginLoadingExperince}</div>
+                    <div>Light House : FAST</div>
+                </div>
+            </div>
+        </div>
+        <div id="Main_SEO">
+            <h3 class="text-danger mt-5">SEO</h3>
+            <div>
+                <div class="row bg-light mb-5">
+                    <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
+                        <h5 class="">TOTAL TRAFFIC</h5>
+                    </div>
+                    <div class="col-md-6 border-end">
+                        <h5>The estimated number of clicks the analyzed website will get on Google based on the current
+                            rankings of the discovered keywords</h5>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
+                        <h5 class="text-info">${get.total_traffic}</h5>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row bg-light mb-5">
+                    <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
+                        <h5 class="">Key Word</h5>
+                    </div>
+                    <div class="col-md-6 border-end">
+                        <h5>The total number of keywords the analyzed website ranks for in organic search</h5>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
+                        <h5 class="text-info">${get.key_Word}</h5>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row bg-light mb-5">
+                    <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
+                        <h5 class="">Total Traffic Cost</h5>
+                    </div>
+                    <div class="col-md-6 border-end">
+                        <h5>The estimated cost of traffic the analyzed website would get by targeting every discovered
+                            keyword expressed in the equivalent of Google Ads prices</h5>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center align-items-center border-end">
+                        <h5 class="text-info">${get.total_traffic_cost}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Main_Security">
+            <h3 class="text-danger">Security</h3>
+            <div class="d-flex justify-content-center align-content-center">
+                <div class="square bg-danger mb-2 d-flex justify-content-center align-items-center">
+                    <h1 class="text-light fw-bold ">${get.final_score}</h>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="d-flex justify-content-center align-items-center ">
+                    <div class="col-md-3 m-2 bg-light">
+                        <div class="card__title  d-flex justify-content-center align-items-center"> Web Software
+                            Found</div>
+                        <div class="card__number  d-flex justify-content-center align-items-center">
+                        ${get.software_found}</div>
+                    </div>
+                    <div class="col-md-3 m-2 bg-light">
+                        <div class="card__title  d-flex justify-content-center align-items-center"> Web Software
+                            Outdated</div>
+                        <div class="card__number  d-flex justify-content-center align-items-center  text-dark">
+                        ${get.software_outdated}</div>
+                    </div>
+                    <div class="col-md-3 m-2 bg-light">
+                        <div class="card__title  d-flex justify-content-center align-items-center"> Web Software
+                            Vulnerabil</div>
+                        <div class="card__number  d-flex justify-content-center align-items-center  text-dark">
+                        ${get.software_vulnerabil}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+`;
+    ResultInside.innerHTML = ALL_DATA;
+}
+
+//USER LOGN & SIGN 
+$(LoginPage).click(() => {
+    signIn_Page.style.display = 'block';
+    signUP_Page.style.display = 'none';
+});
+
+$(CreateAccount).click(() => {
+    signIn_Page.style.display = 'none';
+    signUP_Page.style.display = 'block';
+});
+
+$(signUP).click(async () => {
+    let userRegistration = {
+        "name": R_Username.value,
+        "email": R_Email.value,
+        "password": R_Password.value
+    }
+
+    let response = await fetch(`https://a5r-testing.herokuapp.com/addUser`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userRegistration)
+    });
+    let { message } = await response.json();
+    // console.log(resposr);
+    if (message == "Done") {
+        R_errors.style.display = 'none';
+        registration.style.display = 'none';
+        elmentNav.style.display = 'block';
+        accountNav.style.display = 'none';
+        console.log(message);
+    } else {
+        R_errors.style.display = 'block';
+        // signUP.disabled = true;
+        console.log(message);
+        document.getElementById("R_errors").innerHTML = message;
+    }
+});
+
+$(signIn).click(async () => {
+    let userRegistration = {
+        "email": Email.value,
+        "password": Password.value
+    }
+    console.log(Email.value);
+    let response = await fetch(`https://a5r-testing.herokuapp.com/auth`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userRegistration)
+    });
+    let { message } = await response.json();
+    // console.log(resposr);
+    if (message == "login success") {
+        errors.style.display = 'none';
+        registration.style.display = 'none';
+        elmentNav.style.display = 'block';
+        accountNav.style.display = 'none';
+        console.log(message);
+    } else {
+        errors.style.display = 'block';
+        // signIn.disabled = true;
+        console.log(message);
+        document.getElementById("errors").innerHTML = message;
+    }
+});
+// ===============================

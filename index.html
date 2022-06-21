@@ -15,23 +15,35 @@
                 <h2>STA</h2>
             </div>
             <div class="mt-1">
-                <ul class="nav">
-                    <li class="nav-item" id="Home">
-                        <a class="nav-link text-light">HOME</a>
-                    </li>
-                    <li class=" mx-2 nav-item " id="ALL">
-                        <a class="nav-link text-light">All</a>
-                    </li>
-                    <li class=" mx-2 nav-item " id="SEO">
-                        <a class="nav-link text-light">SEO</a>
-                    </li>
-                    <li class=" mx-2 nav-item " id="PERFORMANCE">
-                        <a class="nav-link text-light">Performance</a>
-                    </li>
-                    <li class=" mx-2 nav-item " id="SECURITY">
-                        <a class="nav-link text-light">Security</a>
-                    </li>
-                </ul>
+                <div id="elmentNav" class="d-none">
+                    <ul class="nav ">
+                        <li class="nav-item" id="Home">
+                            <a class="nav-link text-light">HOME</a>
+                        </li>
+                        <li class=" mx-2 nav-item " id="ALL">
+                            <a class="nav-link text-light">All</a>
+                        </li>
+                        <li class=" mx-2 nav-item " id="SEO">
+                            <a class="nav-link text-light">SEO</a>
+                        </li>
+                        <li class=" mx-2 nav-item " id="PERFORMANCE">
+                            <a class="nav-link text-light">Performance</a>
+                        </li>
+                        <li class=" mx-2 nav-item " id="SECURITY">
+                            <a class="nav-link text-light">Security</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="accountNav">
+                    <ul class="nav ">
+                        <li class="nav-item ">
+                            <a class="nav-link text-light LoginPage">Log in</a>
+                        </li>
+                        <li class=" mx-2 nav-item CreateAccount">
+                            <a class="nav-link text-light">Registeration</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -43,7 +55,7 @@
         </div>
         <div class="container" id="txetContent">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <div class="mt-5 pb-5">
                         <!-- dynamicBage -->
                         <div class="content">
@@ -53,21 +65,16 @@
                                 input
                                 and
                                 can be used <br> in a variety of ways in almost any industry.At the most basic,
-                                automation
-                                software is designed<br> to turn repeatable, routine tasks into automated actions.<br>
-                                It's
-                                used
-                                in
-                                Business Process Management (BPM) and Robotic Process Automation (RPA),<br>among others.
+                                automation software is designed<br> to turn repeatable, routine tasks into automated
+                                actions.<br>
+                                It's used in Business Process Management (BPM) and Robotic Process Automation
+                                (RPA),<br>among others.
                                 Integration automation is higher up in the evolution of automation software.<br> Known
-                                as
-                                "digital workers", these software bots can be "trained" via recorded workflows.<br> Once
-                                a
+                                as "digital workers", these software bots can be "trained" via recorded workflows.<br>
+                                Once a
                                 process is built it requires very little human intervention. Digital Workers can
-                                become<br>
-                                part of an integrated human/robotic workforce<br>
+                                become<br> part of an integrated human/robotic workforce<br>
                             <h2 class="text-light mt-5 ">What Is Automated Performance Testing?</h2><br>
-
                             </p>
                             <p class="par text-light">Automated performance testing checks the speed, response time,
                                 reliability,
@@ -80,10 +87,46 @@
                     </div>
                 </div>
                 <!-- user Account -->
-                <div class="col-md-4 ">
-                    <div class="mt-5 w-100 black ">
-                        <div class="rounded-3 d-flex justify-content-center"></div>
-                        <input type="text" class="bg-light ">
+                <div id="registration" class="col-md-4">
+                    <div class="mt-5 black">
+                        <div class=" d-flex justify-content-center">
+                            <div id="signUP_Page" class="p-5 ">
+                                <h1 class="text-light">Sign Up</h1>
+                                <div class="textbox">
+                                    <i class="fas fa-user "></i>
+                                    <input type="text" id="R_Username" placeholder="Username">
+                                </div>
+                                <div class="textbox">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="R_Email" placeholder="Your Email">
+                                </div>
+                                <div class="textbox">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="R_Password" placeholder="Password">
+                                </div>
+                                <div class="textbox">
+                                    <i class="fas fa-redo-alt"></i>
+                                    <input type="password" id="R_RePassword" placeholder="Repeat your password">
+                                </div>
+                                <div id="R_errors" class="textbox test d-none text-danger"></div>
+                                <input type="button" id="signUP" class="btn bg-light mt-3 fw-bolder" value="Sign Up">
+                                <a class="LoginPage ms-3">I am already member</a>
+                            </div>
+                            <div id="signIn_Page" class="p-5 d-none">
+                                <h1 class="text-light">Sign In</h1>
+                                <div class="textbox">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="Email" placeholder="Your Email">
+                                </div>
+                                <div class="textbox">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="Password" placeholder="Password">
+                                </div>
+                                <div id="errors" class="textbox text-danger test d-none"></div>
+                                <input type="button" id="signIn" class="btn bg-light mt-3 fw-bolder" value="Sign In">
+                                <a class="CreateAccount ms-4">Create Account</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- user Account -->
@@ -92,7 +135,6 @@
     </section>
 
     <!-- test -->
-
     <!-- test -->
 
     <!-- Link -->

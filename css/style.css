@@ -9,11 +9,11 @@
 }
 
 body{
-    background: linear-gradient(to top, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../images/1.jpg);
+    background: rgb(90, 90, 90);
     background-size: cover; 
 }
 .black{
-    background-color: black;
+    background-color: rgb(36, 34, 34);
 }
 .content span{
     color: #ff7200;
@@ -69,11 +69,7 @@ body{
 .square h1{
     font-size: 50px;
 }
-/* .test{
-    width: 150px;
-    height: 200px;
-    padding: 50px;
-} */
+
 .card__number {
     font-size: 46px;
     color: rgba(254,152,0,.88);
@@ -98,9 +94,7 @@ body{
     width: 7%;
 
 }
-.test{
-    background-color: rgba(148, 148, 148, 0.966);
-}
+
 td{
     padding: 6px 10px;
     border: 1px solid #cddeeb;
@@ -108,7 +102,38 @@ td{
 thead{
 background-color: #cddeeb;
 }
+.textbox {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid #999;
+}
 
+.textbox i {
+    width: 26px;
+    float: left;
+    text-align: center;
+    color: #fff;
+}
+
+.textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    color: rgb(255, 255, 255);
+    width: 80%;
+    margin: 0 10px;
+
+}
+#signIn{
+    box-shadow:none !important;
+}
+#registration{
+margin-top: 100px;
+margin-left: 70px;
+}
 /* 
 .forma{
     width: 285px;
