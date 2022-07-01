@@ -436,7 +436,7 @@ async function postUrl() {
 // performance
 // hna anta 7att id mn 3ndk mtnsa4 t8irh
 async function performanceRsulte() {
-    let response = await fetch(`http://localhost:4000/performance/62bca7917b87189b500442df`);
+    let response = await fetch(`http://localhost:4000/performance/628e773295c61f10df2bd9cd`);
     let { message, get } = await response.json();
     speedID = get._id;
     console.log(get, message);
@@ -464,20 +464,20 @@ function show_Performance_Rsulte(get) {
         OLE_LCP = get.OLE_LCP,
     ]
     let nameOFresulte = [
-        "LE_CLS",
-        "LE_FCP",
-        "LE_FID",
-        "LE_LCP",
-        "LH_CLS",
-        "LH_FCP",
-        "LH_SI",
-        "LH_LCP",
-        "LH_TBT",
-        "LH_TTI",
-        "OLE_CLS",
-        "OLE_FCP",
-        "OLE_FID",
-        "OLE_LCP",
+        "CUMULATIVE LAYOUT SHIFT(CLS)",
+        "FIRST CONTENTFUL PAINT(FCP)",
+        "FIRST INPUT DELAY(FID)",
+        "LARGEST CONTENTFUL PAINT(LCP)",
+        "CUMULATIVE LAYOUT SHIFT(CLS)",
+        "FIRST CONTENTFUL PAINT(FCP)",
+        "SPEED INDEX(SI)",
+        "LARGEST CONTENTFUL PAINT(LCP)",
+        "TOTAL BLOCKING TIME(TBT)",
+        "TIME TO INTERACTIVE(TIT)",
+        "CUMULATIVE LAYOUT SHIFT(CLS)",
+        "FIRST CONTENTFUL PAINT(FCP)",
+        "FIRST INPUT DELAY(FID)",
+        "LARGEST CONTENTFUL PAINT(LCP)",
     ]
     for (let i = 0; i < resulte.length; i++) {
         if (resulte[i] === "FAST") {
@@ -490,7 +490,19 @@ function show_Performance_Rsulte(get) {
                 barRang: "28",
                 barColor: '#fa0082',
             }
-        } else {
+        } else if (resulte[i] >= 0 && resulte[i] <= 49) {
+            obj[i] = {
+                barRang: "28",
+                barColor: '#fa0082',
+            }
+        }
+        else if (resulte[i] >= 90 && resulte[i] <= 100) {
+            obj[i] = {
+                barRang: "90",
+                barColor: '#17a7e1',
+            }
+        }
+        else {
             obj[i] = {
                 barRang: "50",
                 barColor: '#e715ef',
@@ -513,12 +525,12 @@ function show_Performance_Rsulte(get) {
     <h5 class="text-light mb-0 mt-3">${nameOFresulte[0]}</h5>
         <div class="progress rounded-pill">
             <div class="progress-bar" style="background-color: ${obj[0].barColor};width: ${obj[0].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[0].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LE_CLS}</div>
         </div>
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[1]}</h5>
         <div class="progress rounded-pill ">
             <div class="progress-bar" style="background-color: ${obj[1].barColor};width: ${obj[1].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[1].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LE_FCP}</div>
         </div>
     </div>
 
@@ -526,12 +538,12 @@ function show_Performance_Rsulte(get) {
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[2]}</h5>
         <div class="progress rounded-pill">
             <div class="progress-bar" style="background-color: ${obj[2].barColor};width: ${obj[2].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[2].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LE_FID}</div>
         </div>
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[3]}</h5>
         <div class="progress rounded-pill ">
             <div class="progress-bar" style="background-color: ${obj[3].barColor};width: ${obj[3].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[3].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LE_LCP}</div>
         </div>
     </div>
 </div>
@@ -540,23 +552,23 @@ function show_Performance_Rsulte(get) {
     
     <div class="d-flex justify-content-start">
     <h5 class="text_black fw-bolder">Light House :</h5>
-    <h5 class="webColor fw-bolder"> 73</h5>
+    <h5 class="webColor fw-bolder"> ${get.LightHouse}</h5>
     </div>
     <div class="col-md-6 ">    
     <h5 class="text-light mb-0 mt-3">${nameOFresulte[4]}</h5>
         <div class="progress rounded-pill">
             <div class="progress-bar" style="background-color: ${obj[4].barColor};width: ${obj[4].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[4].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LH_CLS}</div>
         </div>
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[5]}</h5>
         <div class="progress rounded-pill">
             <div class="progress-bar" style="background-color: ${obj[5].barColor};width: ${obj[5].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[5].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LH_FCP}</div>
         </div>
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[6]}</h5>
         <div class="progress rounded-pill ">
             <div class="progress-bar" style="background-color: ${obj[6].barColor};width: ${obj[6].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[6].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LH_SI}</div>
         </div>
     </div>
 
@@ -564,17 +576,17 @@ function show_Performance_Rsulte(get) {
     <h5 class="text-light mb-0 mt-3">${nameOFresulte[7]}</h5>
         <div class="progress rounded-pill">
             <div class="progress-bar" style="background-color: ${obj[7].barColor};width: ${obj[7].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[7].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LH_LCP}</div>
         </div>    
     <h5 class="text-light mb-0 mt-3">${nameOFresulte[8]}</h5>
         <div class="progress rounded-pill">
             <div class="progress-bar" style="background-color: ${obj[8].barColor};width: ${obj[8].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[8].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LH_TBT}</div>
         </div>
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[9]}</h5>
         <div class="progress rounded-pill ">
             <div class="progress-bar" style="background-color: ${obj[9].barColor};width: ${obj[9].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[9].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.LH_TTI}</div>
         </div>
     </div>
 </div>
@@ -588,12 +600,12 @@ function show_Performance_Rsulte(get) {
     <h5 class="text-light mb-0 mt-3">${nameOFresulte[10]}</h5>
         <div class="progress rounded-pill">
             <div class="progress-bar" style="background-color: ${obj[10].barColor};width: ${obj[10].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[10].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.OLE_CLS}</div>
         </div>
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[11]}</h5>
         <div class="progress rounded-pill ">
             <div class="progress-bar" style="background-color: ${obj[11].barColor};width: ${obj[11].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[11].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.OLE_FCP}</div>
         </div>
     </div>
 
@@ -601,12 +613,12 @@ function show_Performance_Rsulte(get) {
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[12]}</h5>
         <div class="progress rounded-pill">
             <div class="progress-bar" style="background-color: ${obj[12].barColor};width: ${obj[12].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[12].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.OLE_FID}</div>
         </div>
         <h5 class="text-light mb-0 mt-3">${nameOFresulte[13]}</h5>
         <div class="progress rounded-pill ">
             <div class="progress-bar" style="background-color: ${obj[13].barColor};width: ${obj[13].barRang}%" role="progressbar"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${obj[13].barRang}%</div>
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${get.OLE_LCP}</div>
         </div>
     </div>
 </div>
