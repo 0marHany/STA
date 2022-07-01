@@ -32,12 +32,15 @@
                         <li class=" mx-2 nav-item " id="SECURITY">
                             <a class="nav-link text-light">Security</a>
                         </li>
+                        <li class=" mx-2 nav-item " id="Selenium">
+                            <a class="nav-link text-light">Login & Registeration </a>
+                        </li>
                     </ul>
                 </div>
                 <div id="accountNav">
                     <ul class="nav ">
                         <li class="nav-item ">
-                            <a class="nav-link text-light LoginPage">Log in</a>
+                            <a class="nav-link text-light LoginPage">Login</a>
                         </li>
                         <li class=" mx-2 nav-item CreateAccount">
                             <a class="nav-link text-light">Registeration</a>
@@ -109,7 +112,7 @@
                                     <input type="password" id="R_RePassword" placeholder="Repeat your password">
                                 </div>
                                 <div id="R_errors" class="textbox test d-none text-danger"></div>
-                                <input type="button" id="signUP" class="btn bg-light mt-3 fw-bolder" value="Sign Up">
+                                <button id="signUP" class="btn bg-light mt-3 fw-bolder">Sign Up</button>
                                 <a class="LoginPage ms-3">I am already member</a>
                             </div>
                             <div id="signIn_Page" class="p-5 d-none">
@@ -123,7 +126,7 @@
                                     <input type="password" id="Password" placeholder="Password">
                                 </div>
                                 <div id="errors" class="textbox text-danger test d-none"></div>
-                                <input type="button" id="signIn" class="btn bg-light mt-3 fw-bolder" value="Sign In">
+                                <button id="signIn" class="btn bg-light mt-3 fw-bolder">Sign In</button>
                                 <a class="CreateAccount ms-4">Create Account</a>
                             </div>
                         </div>
@@ -135,20 +138,119 @@
     </section>
 
     <!-- test -->
-    <!-- test -->
-
-    <!-- Link -->
-    <section id="Link" class="d-none">
+    <!-- endTest -->
+    <!-- Links -->
+    <section id="Link" class=" pb-1 d-none">
         <div class="d-flex justify-content-center mb-3 ">
             <input type="url" id="Url" class="form-control shadow-none w-50 rounded-pill1 "
                 placeholder="https://example.com">
-            <input type="button" id="Analyze" class="buttonDesign form-control shadow-none text-light " value="Analyze">
+            <button id="Analyze" class="buttonDesign form-control shadow-none text-light ">Analyze</button>
+        </div>
+    </section>
+    <section id="LinkSEO" class=" pb-1 d-none">
+        <div class="d-flex justify-content-center mb-3 ">
+            <input type="url" id="UrlSEO" class="form-control shadow-none w-50 rounded-pill1 "
+                placeholder="https://example.com">
+            <button id="AnalyzeSEO" class="buttonDesign form-control shadow-none text-light ">Analyze</button>
+        </div>
+    </section>
+    <section id="LinkSpeed" class=" pb-1 d-none">
+        <div class="d-flex justify-content-center mb-3 ">
+            <input type="url" id="UrlSpeed" class="form-control shadow-none w-50 rounded-pill1 "
+                placeholder="https://example.com">
+            <button id="AnalyzeSpeed" class="buttonDesign form-control shadow-none text-light ">Analyze</button>
+        </div>
+    </section>
+    <section id="LinkScur" class=" pb-1 d-none">
+        <div class="d-flex justify-content-center mb-3 ">
+            <input type="url" id="UrlScur" class="form-control shadow-none w-50 rounded-pill1 "
+                placeholder="https://example.com">
+            <button id="AnalyzeScur" class="buttonDesign form-control shadow-none text-light ">Analyze</button>
+        </div>
+    </section>
+    <section id="LinkSelenium" class=" pb-1 d-none">
+        <div class="d-flex justify-content-center mb-3 ">
+            <input type="url" id="UrlSelenium" class="form-control shadow-none w-50 rounded-pill1 "
+                placeholder="https://example.com">
+            <button id="AnalyzeSelenium" class="buttonDesign form-control shadow-none text-light ">Analyze</button>
         </div>
     </section>
     <!-- Results -->
-    <section id="Result" class=" d-none mt-5 mb-2 ">
-        <div class="container" id="ResultInside">
+    <section class=" mt-5 mb-2 ">
+        <div class="d-none container" id="ResultInside">
 
+        </div>
+    </section>
+    <section class="  mt-5 mb-2 ">
+        <div class="d-none container" id="ResultSEO">
+
+        </div>
+    </section>
+    <section class="  mt-5 mb-2 ">
+        <div class="d-none container" id="ResultSpeed">
+
+        </div>
+    </section>
+    <section class="  mt-5 mb-2 ">
+        <div class="d-none container" id="ResultScur">
+
+        </div>
+    </section>
+    <section class="  mt-5 mb-2 ">
+        <div class="d-none container " id="ResultSelenium">
+
+        </div>
+    </section>
+    <!-- endResults -->
+
+    <!-- pdf -->
+    <section id="PDF" class="d-none">
+        <div class="d-flex justify-content-center align-items-center">
+            <button id="Pdf_Button" class="PDFbutton form-control shadow-none text-light">PDF</button>
+        </div>
+        <div id="SendPDF" class="d-none">
+            <div class="d-flex justify-content-center">
+                <input type="email" id="Email_address" class="form-control shadow-none w-25 rounded-pill1 "
+                    placeholder="example@domain.com">
+                <button id="sendEmail" class="buttonDesign form-control shadow-none text-light ">Send</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="PDF_SEO" class="d-none">
+        <div class="d-flex justify-content-center align-items-center">
+            <button id="Pdf_Button_SEO" class="PDFbutton form-control shadow-none text-light">PDF</button>
+        </div>
+        <div id="SendPDF_SEO" class="d-none">
+            <div class="d-flex justify-content-center">
+                <input type="email" id="Email_address_SEO" class="form-control shadow-none w-25 rounded-pill1 "
+                    placeholder="example@domain.com">
+                <button id="sendEmail_SEO" class="buttonDesign form-control shadow-none text-light ">Send</button>
+            </div>
+        </div>
+    </section>
+    <section id="PDF_Secur" class="d-none">
+        <div class="d-flex justify-content-center align-items-center">
+            <button id="Pdf_Button_Secur" class="PDFbutton form-control shadow-none text-light">PDF</button>
+        </div>
+        <div id="SendPDF_Secur" class="d-none">
+            <div class="d-flex justify-content-center">
+                <input type="email" id="Email_address_Secur" class="form-control shadow-none w-25 rounded-pill1 "
+                    placeholder="example@domain.com">
+                <button id="sendEmail_Secur" class="buttonDesign form-control shadow-none text-light ">Send</button>
+            </div>
+        </div>
+    </section>
+    <section id="PDF_Speed" class="d-none">
+        <div class="d-flex justify-content-center align-items-center">
+            <button id="Pdf_Button_Speed" class="PDFbutton form-control shadow-none text-light">PDF</button>
+        </div>
+        <div id="SendPDF_Speed" class="d-none">
+            <div class="d-flex justify-content-center">
+                <input type="email" id="Email_address_Speed" class="form-control shadow-none w-25 rounded-pill1 "
+                    placeholder="example@domain.com">
+                <button id="sendEmail_Speed" class="buttonDesign form-control shadow-none text-light ">Send</button>
+            </div>
         </div>
     </section>
 
